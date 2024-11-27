@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
 
     const user = result.recordset[0];
     const passwordMatch = await comparePassword(password, user.password); // Compare hashed passwords
-
+    
     if (!passwordMatch) {
       return res.status(401).send({ message: "Invalid credentials", status: 401, success: false });
     }
